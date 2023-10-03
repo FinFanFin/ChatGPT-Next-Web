@@ -479,73 +479,73 @@ function SyncItems() {
     };
   }, [chatStore.sessions, maskStore.masks, promptStore.prompts]);
 
-  return (
-    <>
-      <List>
-        <ListItem
-          title={Locale.Settings.Sync.CloudState}
-          subTitle={
-            syncStore.lastProvider
-              ? `${new Date(syncStore.lastSyncTime).toLocaleString()} [${
-                  syncStore.lastProvider
-                }]`
-              : Locale.Settings.Sync.NotSyncYet
-          }
-        >
-          <div style={{ display: "flex" }}>
-            <IconButton
-              icon={<ConfigIcon />}
-              text={Locale.UI.Config}
-              onClick={() => {
-                setShowSyncConfigModal(true);
-              }}
-            />
-            {couldSync && (
-              <IconButton
-                icon={<ResetIcon />}
-                text={Locale.UI.Sync}
-                onClick={async () => {
-                  try {
-                    await syncStore.sync();
-                    showToast(Locale.Settings.Sync.Success);
-                  } catch (e) {
-                    showToast(Locale.Settings.Sync.Fail);
-                    console.error("[Sync]", e);
-                  }
-                }}
-              />
-            )}
-          </div>
-        </ListItem>
+  // return (
+  //   <>
+  //     <List>
+  //       <ListItem
+  //         title={Locale.Settings.Sync.CloudState}
+  //         subTitle={
+  //           syncStore.lastProvider
+  //             ? `${new Date(syncStore.lastSyncTime).toLocaleString()} [${
+  //                 syncStore.lastProvider
+  //               }]`
+  //             : Locale.Settings.Sync.NotSyncYet
+  //         }
+  //       >
+  //         <div style={{ display: "flex" }}>
+  //           <IconButton
+  //             icon={<ConfigIcon />}
+  //             text={Locale.UI.Config}
+  //             onClick={() => {
+  //               setShowSyncConfigModal(true);
+  //             }}
+  //           />
+  //           {couldSync && (
+  //             <IconButton
+  //               icon={<ResetIcon />}
+  //               text={Locale.UI.Sync}
+  //               onClick={async () => {
+  //                 try {
+  //                   await syncStore.sync();
+  //                   showToast(Locale.Settings.Sync.Success);
+  //                 } catch (e) {
+  //                   showToast(Locale.Settings.Sync.Fail);
+  //                   console.error("[Sync]", e);
+  //                 }
+  //               }}
+  //             />
+  //           )}
+  //         </div>
+  //       </ListItem>
 
-        <ListItem
-          title={Locale.Settings.Sync.LocalState}
-          subTitle={Locale.Settings.Sync.Overview(stateOverview)}
-        >
-          <div style={{ display: "flex" }}>
-            <IconButton
-              icon={<UploadIcon />}
-              text={Locale.UI.Export}
-              onClick={() => {
-                syncStore.export();
-              }}
-            />
-            <IconButton
-              icon={<DownloadIcon />}
-              text={Locale.UI.Import}
-              onClick={() => {
-                syncStore.import();
-              }}
-            />
-          </div>
-        </ListItem>
-      </List>
+  //       <ListItem
+  //         title={Locale.Settings.Sync.LocalState}
+  //         subTitle={Locale.Settings.Sync.Overview(stateOverview)}
+  //       >
+  //         <div style={{ display: "flex" }}>
+  //           <IconButton
+  //             icon={<UploadIcon />}
+  //             text={Locale.UI.Export}
+  //             onClick={() => {
+  //               syncStore.export();
+  //             }}
+  //           />
+  //           <IconButton
+  //             icon={<DownloadIcon />}
+  //             text={Locale.UI.Import}
+  //             onClick={() => {
+  //               syncStore.import();
+  //             }}
+  //           />
+  //         </div>
+  //       </ListItem>
+  //     </List>
 
-      {showSyncConfigModal && (
-        <SyncConfigModal onClose={() => setShowSyncConfigModal(false)} />
-      )}
-    </>
-  );
+  //     {showSyncConfigModal && (
+  //       <SyncConfigModal onClose={() => setShowSyncConfigModal(false)} />
+  //     )}
+  //   </>
+  // );
 }
 
 export function Settings() {
@@ -670,7 +670,7 @@ export function Settings() {
             </Popover>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
               checkingUpdate
@@ -693,9 +693,9 @@ export function Settings() {
                 onClick={() => checkUpdate(true)}
               />
             )}
-          </ListItem>
+          </ListItem> */}
 
-          <ListItem title={Locale.Settings.SendKey}>
+          {/* <ListItem title={Locale.Settings.SendKey}>
             <Select
               value={config.submitKey}
               onChange={(e) => {
@@ -711,7 +711,7 @@ export function Settings() {
                 </option>
               ))}
             </Select>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem title={Locale.Settings.Theme}>
             <Select
@@ -730,7 +730,7 @@ export function Settings() {
             </Select>
           </ListItem>
 
-          <ListItem title={Locale.Settings.Lang.Name}>
+          {/* <ListItem title={Locale.Settings.Lang.Name}>
             <Select
               value={getLang()}
               onChange={(e) => {
@@ -743,7 +743,7 @@ export function Settings() {
                 </option>
               ))}
             </Select>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem
             title={Locale.Settings.FontSize.Title}
@@ -817,7 +817,7 @@ export function Settings() {
             ></input>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Mask.Builtin.Title}
             subTitle={Locale.Settings.Mask.Builtin.SubTitle}
           >
@@ -831,7 +831,7 @@ export function Settings() {
                 )
               }
             ></input>
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <List>
