@@ -478,6 +478,7 @@ function SyncItems() {
       mask: Object.keys(maskStore.masks).length,
     };
   }, [chatStore.sessions, maskStore.masks, promptStore.prompts]);
+  return <></>;
 
   // return (
   //   <>
